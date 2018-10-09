@@ -1,0 +1,14 @@
+{
+	"name": "DS040801_Prisma_Campaign_Report_TRowePrice_SQLProc",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQLConnection",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureSqlTable",
+		"typeProperties": {
+			"tableName": "Prisma"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

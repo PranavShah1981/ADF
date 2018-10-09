@@ -1,0 +1,1025 @@
+{
+	"name": "Prisma",
+	"properties": {
+		"activities": [
+			{
+				"name": "Prisma_Campaign_Report_TRP",
+				"type": "Copy",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"source": {
+						"type": "HttpSource",
+						"httpRequestTimeout": "00:01:40"
+					},
+					"sink": {
+						"type": "SqlSink",
+						"writeBatchSize": 100000,
+						"preCopyScript": "Truncate table dbo.DFID043111_DS040801_Prisma_Campaign_Report_TRowePrice_Extracted",
+						"sqlWriterStoredProcedureName": "usp_Load_DS040801_Prisma_Campaign_Report_TRowePrice",
+						"sqlWriterTableType": "DS040801_Prisma_Campaign_Report_TRowePrice"
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0
+				},
+				"inputs": [
+					{
+						"referenceName": "DS040801_Prisma_Campaign_Report_TRowePrice_PrismaCampaignTRP",
+						"type": "DatasetReference",
+						"parameters": {
+							"PrismaAccessToken": "7adb7c89-64a4-46de-a141-5c9843be0fca",
+							"CampaignID": "0"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS040801_Prisma_Campaign_Report_TRowePrice_SQLProc",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Prisma_Campaign_Report_WMTR",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Prisma_Campaign_Report_TRP",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"source": {
+						"type": "HttpSource",
+						"httpRequestTimeout": "00:01:40"
+					},
+					"sink": {
+						"type": "SqlSink",
+						"writeBatchSize": 100000,
+						"sqlWriterStoredProcedureName": "usp_Load_DS040801_Prisma_Campaign_Report_TRowePrice",
+						"sqlWriterTableType": "DS040801_Prisma_Campaign_Report_TRowePrice"
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0
+				},
+				"inputs": [
+					{
+						"referenceName": "DS040801_Prisma_Campaign_Report_TRowePrice_WMTR",
+						"type": "DatasetReference",
+						"parameters": {
+							"PrismaAccessToken": "19424571-bcd1-47e7-be61-5f1d556cfb6c",
+							"CampaignID": "0"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS040801_Prisma_Campaign_Report_TRowePrice_SQLProc",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Prisma_Placement_Details_PlacementTRP",
+				"type": "Copy",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"source": {
+						"type": "HttpSource",
+						"httpRequestTimeout": "00:01:40"
+					},
+					"sink": {
+						"type": "SqlSink",
+						"writeBatchSize": 100000,
+						"preCopyScript": "truncate table [dbo].[DFID043112_DS040803_Prisma_Placement_Details_Report_TRowePrice_Extracted]",
+						"sqlWriterStoredProcedureName": "[dbo].[usp_Load_DS040803_Prisma_Placement_Details_Report_TRowePrice]",
+						"sqlWriterTableType": "DS040803_Prisma_Placement_Details_Report_TRowePrice"
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"AgencyName": "AgencyName",
+							"AgencyAlphaCode": "AgencyAlphaCode",
+							"LocationCompanyCode": "LocationCompanyCode",
+							"AdvertiserName": "AdvertiserName",
+							"AdvertiserCode": "AdvertiserCode",
+							"AdvertiserBusinessKey": "AdvertiserBusinessKey",
+							"ProductName": "ProductName",
+							"ProductCode": "ProductCode",
+							"ProductBusinessKey": "ProductBusinessKey",
+							"CampaignName": "CampaignName",
+							"CampaignPublicId": "CampaignPublicId",
+							"CampaignId": "CampaignId",
+							"CampaignStartDate": "CampaignStartDate",
+							"CampaignEndDate": "CampaignEndDate",
+							"CampaignCreationDate": "CampaignCreationDate",
+							"CampaignCreationUser": "CampaignCreationUser",
+							"CampaignUser": "CampaignUser",
+							"SupplierName": "SupplierName",
+							"SupplierCode": "SupplierCode",
+							"SupplierBusinessKey": "SupplierBusinessKey",
+							"SupplierProductName": "SupplierProductName",
+							"SupplierAdServerOrderId": "SupplierAdServerOrderId",
+							"EstimateName": "EstimateName",
+							"EstimateCode": "EstimateCode",
+							"EstimateBusinessKey": "EstimateBusinessKey",
+							"EstimateStartDate": "EstimateStartDate",
+							"EstimateEndDate": "EstimateEndDate",
+							"MediaName": "MediaName",
+							"MediaCode": "MediaCode",
+							"BuyType": "BuyType",
+							"BuyCategory": "BuyCategory",
+							"PlacementName": "PlacementName",
+							"PlacementNumber": "PlacementNumber",
+							"PlacementId": "PlacementId",
+							"PackageType": "PackageType",
+							"PackageId": "PackageId",
+							"ParentId": "ParentId",
+							"PlacementStartDate": "PlacementStartDate",
+							"PlacementEndDate": "PlacementEndDate",
+							"PlacementCreationDate": "PlacementCreationDate",
+							"PlacementCreationUser": "PlacementCreationUser",
+							"PlacementChangeDate": "PlacementChangeDate",
+							"PlacementUser": "PlacementUser",
+							"PlacementType": "PlacementType",
+							"PrimaryPlacement": "PrimaryPlacement",
+							"AdserverName": "AdserverName",
+							"InstanceName": "InstanceName",
+							"AdserverCampaignId": "AdserverCampaignId",
+							"AdserverPackageId": "AdserverPackageId",
+							"AdserverPlacementId": "AdserverPlacementId",
+							"AdserverAdvertiserName": "AdserverAdvertiserName",
+							"AdserverAdvertiserCode": "AdserverAdvertiserCode",
+							"AdserverClientName": "AdserverClientName",
+							"AdserverClientCode": "AdserverClientCode",
+							"AdserverSupplierName": "AdserverSupplierName",
+							"AdserverSupplierCode": "AdserverSupplierCode",
+							"AdserverSiteName": "AdserverSiteName",
+							"AdserverSiteCode": "AdserverSiteCode",
+							"Site": "Site",
+							"Dimension": "Dimension",
+							"Positioning": "Positioning",
+							"Section": "Section",
+							"CostMethod": "CostMethod",
+							"OriginalCostMethod": "OriginalCostMethod",
+							"UnitType": "UnitType",
+							"Market": "Market",
+							"MarketRate": "MarketRate",
+							"Rate": "Rate",
+							"IONumber": "IONumber",
+							"ServedBy": "ServedBy",
+							"CapCost": "CapCost",
+							"TargetInfo": "TargetInfo",
+							"Comments": "Comments",
+							"FileType": "FileType",
+							"MaxFileSize": "MaxFileSize",
+							"FlashVersion": "FlashVersion",
+							"CreativeDueDate": "CreativeDueDate",
+							"MaxLooping": "MaxLooping",
+							"MaxAnimationTiming": "MaxAnimationTiming",
+							"RichMediaAccepted": "RichMediaAccepted",
+							"RichMediaIncCmp": "RichMediaIncCmp",
+							"EstimatedUniqueViews": "EstimatedUniqueViews",
+							"EstimatedPageViews": "EstimatedPageViews",
+							"ShareOfVoice": "ShareOfVoice",
+							"ClickThroughUrl": "ClickThroughUrl",
+							"CreativeTypeDescription": "CreativeTypeDescription",
+							"InventoryType": "InventoryType",
+							"OriginalAmount": "OriginalAmount",
+							"OriginalCost": "OriginalCost",
+							"IsDeleted": "IsDeleted"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS040803_Prisma_Placement_Details_Report_TRowePrice_PlacementTRP",
+						"type": "DatasetReference",
+						"parameters": {
+							"PrismaAccessToken": "7adb7c89-64a4-46de-a141-5c9843be0fca",
+							"CampaignID": "0",
+							"IncludeDeletions": "False"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS040803_Prisma_Placement_Details_Report_TRowePrice_SQLProc",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Prisma_Placement_Monthly_Delivery_TRowePrice_WMTR",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Prisma_PlacementmonthlyTRP",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"source": {
+						"type": "HttpSource",
+						"httpRequestTimeout": "00:10:40"
+					},
+					"sink": {
+						"type": "SqlSink",
+						"writeBatchSize": 100000,
+						"sqlWriterStoredProcedureName": "[dbo].[usp_Load_DS040804_Prisma_Placement_Monthly_Delivery_TRowePrice]",
+						"sqlWriterTableType": "DS040804_Prisma_Placement_Monthly_Delivery_TRowePrice"
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"StartDate": "StartDate",
+							"EndDate": "EndDate",
+							"AgencyName": "AgencyName",
+							"AgencyAlphaCode": "AgencyAlphaCode",
+							"LocationCompanyCode": "LocationCompanyCode",
+							"AdvertiserName": "AdvertiserName",
+							"AdvertiserCode": "AdvertiserCode",
+							"AdvertiserBusinessKey": "AdvertiserBusinessKey",
+							"ProductName": "ProductName",
+							"ProductCode": "ProductCode",
+							"ProductBusinessKey": "ProductBusinessKey",
+							"CampaignName": "CampaignName",
+							"CampaignPublicId": "CampaignPublicId",
+							"CampaignId": "CampaignId",
+							"CampaignStartDate": "CampaignStartDate",
+							"CampaignEndDate": "CampaignEndDate",
+							"SupplierName": "SupplierName",
+							"SupplierCode": "SupplierCode",
+							"SupplierBusinessKey": "SupplierBusinessKey",
+							"EstimateName": "EstimateName",
+							"EstimateCode": "EstimateCode",
+							"EstimateBusinessKey": "EstimateBusinessKey",
+							"MediaName": "MediaName",
+							"MediaCode": "MediaCode",
+							"BuyType": "BuyType",
+							"BuyCategory": "BuyCategory",
+							"PlacementName": "PlacementName",
+							"PlacementNumber": "PlacementNumber",
+							"PlacementId": "PlacementId",
+							"PackageType": "PackageType",
+							"PackageId": "PackageId",
+							"ParentId": "ParentId",
+							"PlacementStartDate": "PlacementStartDate",
+							"PlacementEndDate": "PlacementEndDate",
+							"PlacementMonthlyStartDate": "PlacementMonthlyStartDate",
+							"PlacementMonthlyEndDate": "PlacementMonthlyEndDate",
+							"PlacementMonth": "PlacementMonth",
+							"PlacementYear": "PlacementYear",
+							"PlacementType": "PlacementType",
+							"PrimaryPlacement": "PrimaryPlacement",
+							"AdserverName": "AdserverName",
+							"InstanceName": "InstanceName",
+							"AdserverCampaignId": "AdserverCampaignId",
+							"AdserverPackageId": "AdserverPackageId",
+							"AdserverPlacementId": "AdserverPlacementId",
+							"AdserverAdvertiserName": "AdserverAdvertiserName",
+							"AdserverAdvertiserCode": "AdserverAdvertiserCode",
+							"AdserverClientName": "AdserverClientName",
+							"AdserverClientCode": "AdserverClientCode",
+							"AdserverSupplierName": "AdserverSupplierName",
+							"AdserverSupplierCode": "AdserverSupplierCode",
+							"AdserverSiteName": "AdserverSiteName",
+							"AdserverSiteCode": "AdserverSiteCode",
+							"DeliveryExists": "DeliveryExists",
+							"PlannedAmount": "PlannedAmount",
+							"PlannedUnits": "PlannedUnits",
+							"PlannedImpressions": "PlannedImpressions",
+							"PlannedClicks": "PlannedClicks",
+							"PlannedActions": "PlannedActions",
+							"IOAmount": "IOAmount",
+							"SupplierUnits": "SupplierUnits",
+							"SupplierImpressions": "SupplierImpressions",
+							"SupplierClicks": "SupplierClicks",
+							"SupplierActions": "SupplierActions",
+							"SupplierCost": "SupplierCost",
+							"AdserverUnits": "AdserverUnits",
+							"AdserverImpressions": "AdserverImpressions",
+							"AdserverClicks": "AdserverClicks",
+							"AdserverActions": "AdserverActions",
+							"AdserverCost": "AdserverCost",
+							"WeightedPostImpressions": "WeightedPostImpressions",
+							"WeightedPostClicks": "WeightedPostClicks",
+							"WeightedActions": "WeightedActions",
+							"ConversionPostImpressions": "ConversionPostImpressions",
+							"ConversionPostClicks": "ConversionPostClicks",
+							"ConversionActions": "ConversionActions",
+							"IsDeleted": "IsDeleted"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS040804_Prisma_Placement_Monthly_Delivery_TRowePrice_WMTR",
+						"type": "DatasetReference",
+						"parameters": {
+							"PrismaAccessToken": "19424571-bcd1-47e7-be61-5f1d556cfb6c",
+							"CampaignID": "0",
+							"StartDate": "1/1/2014",
+							"EndDate": "12/31/2020",
+							"IncludeDeletions": "False"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS040804_Prisma_Placement_Monthly_Delivery_TRowePrice_SQLProc",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Prisma_PlacementmonthlyTRP",
+				"type": "Copy",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"source": {
+						"type": "HttpSource",
+						"httpRequestTimeout": "00:10:40"
+					},
+					"sink": {
+						"type": "SqlSink",
+						"writeBatchSize": 100000,
+						"preCopyScript": "truncate table [dbo].[DFID043133_DS040804_Prisma_Placement_Monthly_Delivery_TRowePrice_Extracted]\n",
+						"sqlWriterStoredProcedureName": "[dbo].[usp_Load_DS040804_Prisma_Placement_Monthly_Delivery_TRowePrice]",
+						"sqlWriterTableType": "DS040804_Prisma_Placement_Monthly_Delivery_TRowePrice"
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"StartDate": "StartDate",
+							"EndDate": "EndDate",
+							"AgencyName": "AgencyName",
+							"AgencyAlphaCode": "AgencyAlphaCode",
+							"LocationCompanyCode": "LocationCompanyCode",
+							"AdvertiserName": "AdvertiserName",
+							"AdvertiserCode": "AdvertiserCode",
+							"AdvertiserBusinessKey": "AdvertiserBusinessKey",
+							"ProductName": "ProductName",
+							"ProductCode": "ProductCode",
+							"ProductBusinessKey": "ProductBusinessKey",
+							"CampaignName": "CampaignName",
+							"CampaignPublicId": "CampaignPublicId",
+							"CampaignId": "CampaignId",
+							"CampaignStartDate": "CampaignStartDate",
+							"CampaignEndDate": "CampaignEndDate",
+							"SupplierName": "SupplierName",
+							"SupplierCode": "SupplierCode",
+							"SupplierBusinessKey": "SupplierBusinessKey",
+							"EstimateName": "EstimateName",
+							"EstimateCode": "EstimateCode",
+							"EstimateBusinessKey": "EstimateBusinessKey",
+							"MediaName": "MediaName",
+							"MediaCode": "MediaCode",
+							"BuyType": "BuyType",
+							"BuyCategory": "BuyCategory",
+							"PlacementName": "PlacementName",
+							"PlacementNumber": "PlacementNumber",
+							"PlacementId": "PlacementId",
+							"PackageType": "PackageType",
+							"PackageId": "PackageId",
+							"ParentId": "ParentId",
+							"PlacementStartDate": "PlacementStartDate",
+							"PlacementEndDate": "PlacementEndDate",
+							"PlacementMonthlyStartDate": "PlacementMonthlyStartDate",
+							"PlacementMonthlyEndDate": "PlacementMonthlyEndDate",
+							"PlacementMonth": "PlacementMonth",
+							"PlacementYear": "PlacementYear",
+							"PlacementType": "PlacementType",
+							"PrimaryPlacement": "PrimaryPlacement",
+							"AdserverName": "AdserverName",
+							"InstanceName": "InstanceName",
+							"AdserverCampaignId": "AdserverCampaignId",
+							"AdserverPackageId": "AdserverPackageId",
+							"AdserverPlacementId": "AdserverPlacementId",
+							"AdserverAdvertiserName": "AdserverAdvertiserName",
+							"AdserverAdvertiserCode": "AdserverAdvertiserCode",
+							"AdserverClientName": "AdserverClientName",
+							"AdserverClientCode": "AdserverClientCode",
+							"AdserverSupplierName": "AdserverSupplierName",
+							"AdserverSupplierCode": "AdserverSupplierCode",
+							"AdserverSiteName": "AdserverSiteName",
+							"AdserverSiteCode": "AdserverSiteCode",
+							"DeliveryExists": "DeliveryExists",
+							"PlannedAmount": "PlannedAmount",
+							"PlannedUnits": "PlannedUnits",
+							"PlannedImpressions": "PlannedImpressions",
+							"PlannedClicks": "PlannedClicks",
+							"PlannedActions": "PlannedActions",
+							"IOAmount": "IOAmount",
+							"SupplierUnits": "SupplierUnits",
+							"SupplierImpressions": "SupplierImpressions",
+							"SupplierClicks": "SupplierClicks",
+							"SupplierActions": "SupplierActions",
+							"SupplierCost": "SupplierCost",
+							"AdserverUnits": "AdserverUnits",
+							"AdserverImpressions": "AdserverImpressions",
+							"AdserverClicks": "AdserverClicks",
+							"AdserverActions": "AdserverActions",
+							"AdserverCost": "AdserverCost",
+							"WeightedPostImpressions": "WeightedPostImpressions",
+							"WeightedPostClicks": "WeightedPostClicks",
+							"WeightedActions": "WeightedActions",
+							"ConversionPostImpressions": "ConversionPostImpressions",
+							"ConversionPostClicks": "ConversionPostClicks",
+							"ConversionActions": "ConversionActions",
+							"IsDeleted": "IsDeleted"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS040804_Prisma_Placement_Monthly_Delivery_TRowePrice_PlacementmonthlyTRP",
+						"type": "DatasetReference",
+						"parameters": {
+							"PrismaAccessToken": "7adb7c89-64a4-46de-a141-5c9843be0fca",
+							"CampaignID": "0",
+							"StartDate": "1/1/2014",
+							"EndDate": "12/31/2019",
+							"IncludeDeletions": "False"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS040804_Prisma_Placement_Monthly_Delivery_TRowePrice_SQLProc",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Prisma_AdvancedPlacement_WMTR",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Prisma_AdvancedPlacementTRP",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"source": {
+						"type": "HttpSource",
+						"httpRequestTimeout": "00:01:40"
+					},
+					"sink": {
+						"type": "SqlSink",
+						"writeBatchSize": 100000,
+						"preCopyScript": "",
+						"sqlWriterStoredProcedureName": "[dbo].[usp_Load_DS040806_Prisma_Advanced_Placement_Details_Report_TRowePrice_TRowePrice]",
+						"sqlWriterTableType": "DS040806_Prisma_Advanced_Placement_Details_Report_TRowePrice"
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"PlacementName": "PlacementName",
+							"PlacementNumber": "PlacementNumber",
+							"PlacementId": "PlacementId",
+							"PackageType": "PackageType",
+							"PackageId": "PackageId",
+							"ParentId": "ParentId",
+							"PlacementStartDate": "PlacementStartDate",
+							"PlacementEndDate": "PlacementEndDate",
+							"AdserverCampaignId": "AdserverCampaignId",
+							"AdserverPackageId": "AdserverPackageId",
+							"AdserverPlacementId": "AdserverPlacementId",
+							"CustomColumnName": "CustomColumnName",
+							"CustomColumnValue": "CustomColumnValue",
+							"IsDeleted": "IsDeleted"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS040806_Prisma_Advanced_Placement_Details_Report_TRowePrice_WMTR",
+						"type": "DatasetReference",
+						"parameters": {
+							"PrismaAccessToken": "19424571-bcd1-47e7-be61-5f1d556cfb6c",
+							"CampaignID": "0",
+							"IncludeDeletions": "False"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS040806_Prisma_Advanced_Placement_Details_Report_TRowePrice_SQLProc",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Prisma_AdvancedPlacementTRP",
+				"type": "Copy",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"source": {
+						"type": "HttpSource",
+						"httpRequestTimeout": "00:10:40"
+					},
+					"sink": {
+						"type": "SqlSink",
+						"writeBatchSize": 100000,
+						"preCopyScript": "truncate table [dbo].[DFID043134_DS040806_Prisma_Advanced_Placement_Details_Report_TRowePrice_Extracted]",
+						"sqlWriterStoredProcedureName": "[dbo].[usp_Load_DS040806_Prisma_Advanced_Placement_Details_Report_TRowePrice_TRowePrice]",
+						"sqlWriterTableType": "DS040806_Prisma_Advanced_Placement_Details_Report_TRowePrice"
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"PlacementName": "PlacementName",
+							"PlacementNumber": "PlacementNumber",
+							"PlacementId": "PlacementId",
+							"PackageType": "PackageType",
+							"PackageId": "PackageId",
+							"ParentId": "ParentId",
+							"PlacementStartDate": "PlacementStartDate",
+							"PlacementEndDate": "PlacementEndDate",
+							"AdserverCampaignId": "AdserverCampaignId",
+							"AdserverPackageId": "AdserverPackageId",
+							"AdserverPlacementId": "AdserverPlacementId",
+							"CustomColumnName": "CustomColumnName",
+							"CustomColumnValue": "CustomColumnValue",
+							"IsDeleted": "IsDeleted"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS040806_Prisma_Advanced_Placement_Details_Report_TRowePrice_AdvancedPlacementTRP",
+						"type": "DatasetReference",
+						"parameters": {
+							"PrismaAccessToken": "7adb7c89-64a4-46de-a141-5c9843be0fca",
+							"CampaignID": "0",
+							"IncludeDeletions": "False"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS040806_Prisma_Advanced_Placement_Details_Report_TRowePrice_SQLProc",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Prisma_Placement_Details_Placement_WMTR",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Prisma_Placement_Details_PlacementTRP",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"source": {
+						"type": "HttpSource",
+						"httpRequestTimeout": "00:01:40"
+					},
+					"sink": {
+						"type": "SqlSink",
+						"writeBatchSize": 100000,
+						"preCopyScript": "",
+						"sqlWriterStoredProcedureName": "[dbo].[usp_Load_DS040803_Prisma_Placement_Details_Report_TRowePrice]",
+						"sqlWriterTableType": "DS040803_Prisma_Placement_Details_Report_TRowePrice"
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"AgencyName": "AgencyName",
+							"AgencyAlphaCode": "AgencyAlphaCode",
+							"LocationCompanyCode": "LocationCompanyCode",
+							"AdvertiserName": "AdvertiserName",
+							"AdvertiserCode": "AdvertiserCode",
+							"AdvertiserBusinessKey": "AdvertiserBusinessKey",
+							"ProductName": "ProductName",
+							"ProductCode": "ProductCode",
+							"ProductBusinessKey": "ProductBusinessKey",
+							"CampaignName": "CampaignName",
+							"CampaignPublicId": "CampaignPublicId",
+							"CampaignId": "CampaignId",
+							"CampaignStartDate": "CampaignStartDate",
+							"CampaignEndDate": "CampaignEndDate",
+							"CampaignCreationDate": "CampaignCreationDate",
+							"CampaignCreationUser": "CampaignCreationUser",
+							"CampaignUser": "CampaignUser",
+							"SupplierName": "SupplierName",
+							"SupplierCode": "SupplierCode",
+							"SupplierBusinessKey": "SupplierBusinessKey",
+							"SupplierProductName": "SupplierProductName",
+							"SupplierAdServerOrderId": "SupplierAdServerOrderId",
+							"EstimateName": "EstimateName",
+							"EstimateCode": "EstimateCode",
+							"EstimateBusinessKey": "EstimateBusinessKey",
+							"EstimateStartDate": "EstimateStartDate",
+							"EstimateEndDate": "EstimateEndDate",
+							"MediaName": "MediaName",
+							"MediaCode": "MediaCode",
+							"BuyType": "BuyType",
+							"BuyCategory": "BuyCategory",
+							"PlacementName": "PlacementName",
+							"PlacementNumber": "PlacementNumber",
+							"PlacementId": "PlacementId",
+							"PackageType": "PackageType",
+							"PackageId": "PackageId",
+							"ParentId": "ParentId",
+							"PlacementStartDate": "PlacementStartDate",
+							"PlacementEndDate": "PlacementEndDate",
+							"PlacementCreationDate": "PlacementCreationDate",
+							"PlacementCreationUser": "PlacementCreationUser",
+							"PlacementChangeDate": "PlacementChangeDate",
+							"PlacementUser": "PlacementUser",
+							"PlacementType": "PlacementType",
+							"PrimaryPlacement": "PrimaryPlacement",
+							"AdserverName": "AdserverName",
+							"InstanceName": "InstanceName",
+							"AdserverCampaignId": "AdserverCampaignId",
+							"AdserverPackageId": "AdserverPackageId",
+							"AdserverPlacementId": "AdserverPlacementId",
+							"AdserverAdvertiserName": "AdserverAdvertiserName",
+							"AdserverAdvertiserCode": "AdserverAdvertiserCode",
+							"AdserverClientName": "AdserverClientName",
+							"AdserverClientCode": "AdserverClientCode",
+							"AdserverSupplierName": "AdserverSupplierName",
+							"AdserverSupplierCode": "AdserverSupplierCode",
+							"AdserverSiteName": "AdserverSiteName",
+							"AdserverSiteCode": "AdserverSiteCode",
+							"Site": "Site",
+							"Dimension": "Dimension",
+							"Positioning": "Positioning",
+							"Section": "Section",
+							"CostMethod": "CostMethod",
+							"OriginalCostMethod": "OriginalCostMethod",
+							"UnitType": "UnitType",
+							"Market": "Market",
+							"MarketRate": "MarketRate",
+							"Rate": "Rate",
+							"IONumber": "IONumber",
+							"ServedBy": "ServedBy",
+							"CapCost": "CapCost",
+							"TargetInfo": "TargetInfo",
+							"Comments": "Comments",
+							"FileType": "FileType",
+							"MaxFileSize": "MaxFileSize",
+							"FlashVersion": "FlashVersion",
+							"CreativeDueDate": "CreativeDueDate",
+							"MaxLooping": "MaxLooping",
+							"MaxAnimationTiming": "MaxAnimationTiming",
+							"RichMediaAccepted": "RichMediaAccepted",
+							"RichMediaIncCmp": "RichMediaIncCmp",
+							"EstimatedUniqueViews": "EstimatedUniqueViews",
+							"EstimatedPageViews": "EstimatedPageViews",
+							"ShareOfVoice": "ShareOfVoice",
+							"ClickThroughUrl": "ClickThroughUrl",
+							"CreativeTypeDescription": "CreativeTypeDescription",
+							"InventoryType": "InventoryType",
+							"OriginalAmount": "OriginalAmount",
+							"OriginalCost": "OriginalCost",
+							"IsDeleted": "IsDeleted"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS040803_Prisma_Placement_Details_Report_TRowePrice_WMTR",
+						"type": "DatasetReference",
+						"parameters": {
+							"PrismaAccessToken": "19424571-bcd1-47e7-be61-5f1d556cfb6c",
+							"CampaignID": "0",
+							"IncludeDeletions": "FALSE"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS040803_Prisma_Placement_Details_Report_TRowePrice_SQLProc",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Prisma_Campaign_Report_TRP_FailureNotification",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Prisma_Campaign_Report_TRP",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"url": "https://prod-07.eastus.logic.azure.com:443/workflows/202bfb2d6e5d4108bc253bc2091db8f4/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=B9GfpCVC4ckmQoB44i_i55Pl07v6VY6bXsRgTK43cyw",
+					"method": "POST",
+					"headers": {
+						"Content-Type": "application/json"
+					},
+					"body": {
+						"value": "{\n\"message\":\"Pipeline: @{pipeline().Pipeline} execution failed\"\n,\"receiver\":\"@{pipeline().parameters.receiver}\"\n}",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Prisma_Campaign_Report_WMTR_FailureNotification",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Prisma_Campaign_Report_WMTR",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"url": "https://prod-07.eastus.logic.azure.com:443/workflows/202bfb2d6e5d4108bc253bc2091db8f4/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=B9GfpCVC4ckmQoB44i_i55Pl07v6VY6bXsRgTK43cyw",
+					"method": "POST",
+					"headers": {
+						"Content-Type": "application/json"
+					},
+					"body": {
+						"message": "Pipeline: @{pipeline().Pipeline} execution failed",
+						"receiver": "@{pipeline().parameters.receiver}"
+					}
+				}
+			},
+			{
+				"name": "PP_Details_PlacementTRP_FailureNotification",
+				"description": "Activity Name: Prisma_Placement_Details_PlacementTRP_FailureNotification",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Prisma_Placement_Details_PlacementTRP",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"url": "https://prod-07.eastus.logic.azure.com:443/workflows/202bfb2d6e5d4108bc253bc2091db8f4/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=B9GfpCVC4ckmQoB44i_i55Pl07v6VY6bXsRgTK43cyw",
+					"method": "POST",
+					"headers": {
+						"Content-Type": "application/json"
+					},
+					"body": {
+						"value": "{\n\"message\":\"Pipeline: @{pipeline().Pipeline} execution failed\"\n,\"receiver\":\"@{pipeline().parameters.receiver}\"\n}",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "PPD_Placement_WMTR_FailureNotification",
+				"description": "Activity Name: Prisma_Placement_Details_Placement_WMTR_EmailNotification",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Prisma_Placement_Details_Placement_WMTR",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"url": "https://prod-07.eastus.logic.azure.com:443/workflows/202bfb2d6e5d4108bc253bc2091db8f4/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=B9GfpCVC4ckmQoB44i_i55Pl07v6VY6bXsRgTK43cyw",
+					"method": "POST",
+					"headers": {
+						"Content-Type": "application/json"
+					},
+					"body": {
+						"value": "{\n\"message\":\"Pipeline: @{pipeline().Pipeline} execution failed\"\n,\"receiver\":\"@{pipeline().parameters.receiver}\"\n}",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Prisma_PlacementmonthlyTRP_FailureNotification",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Prisma_PlacementmonthlyTRP",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"url": "https://prod-07.eastus.logic.azure.com:443/workflows/202bfb2d6e5d4108bc253bc2091db8f4/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=B9GfpCVC4ckmQoB44i_i55Pl07v6VY6bXsRgTK43cyw",
+					"method": "POST",
+					"headers": {
+						"Content-Type": "application/json"
+					},
+					"body": {
+						"value": "{\n\"message\":\"Pipeline: @{pipeline().Pipeline} execution failed\"\n,\"receiver\":\"@{pipeline().parameters.receiver}\"\n}",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "PP_Monthly_Delivery_TRowePrice_WMTR_FailureNotification",
+				"description": "Activity Name: Prisma_Placement_Monthly_Delivery_TRowePrice_WMTR_EmailNotification",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Prisma_Placement_Monthly_Delivery_TRowePrice_WMTR",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"url": "https://prod-07.eastus.logic.azure.com:443/workflows/202bfb2d6e5d4108bc253bc2091db8f4/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=B9GfpCVC4ckmQoB44i_i55Pl07v6VY6bXsRgTK43cyw",
+					"method": "POST",
+					"headers": {
+						"Content-Type": "application/json"
+					},
+					"body": {
+						"value": "{\n\"message\":\"Pipeline: @{pipeline().Pipeline} execution failed\"\n,\"receiver\":\"@{pipeline().parameters.receiver}\"\n}",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Prisma_AdvancedPlacementTRP_FailureNotification",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Prisma_AdvancedPlacementTRP",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"url": "https://prod-07.eastus.logic.azure.com:443/workflows/202bfb2d6e5d4108bc253bc2091db8f4/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=B9GfpCVC4ckmQoB44i_i55Pl07v6VY6bXsRgTK43cyw",
+					"method": "POST",
+					"headers": {
+						"Content-Type": "application/json"
+					},
+					"body": {
+						"value": "{\n\"message\":\"Pipeline: @{pipeline().Pipeline} execution failed\"\n,\"receiver\":\"@{pipeline().parameters.receiver}\"\n}",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Prisma_AdvancedPlacement_WMTR_FailureNotification",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Prisma_AdvancedPlacement_WMTR",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"url": "https://prod-07.eastus.logic.azure.com:443/workflows/202bfb2d6e5d4108bc253bc2091db8f4/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=B9GfpCVC4ckmQoB44i_i55Pl07v6VY6bXsRgTK43cyw",
+					"method": "POST",
+					"headers": {
+						"Content-Type": "application/json"
+					},
+					"body": {
+						"value": "{\n\"message\":\"Pipeline: @{pipeline().Pipeline} execution failed\"\n,\"receiver\":\"@{pipeline().parameters.receiver}\"\n}",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"receiver": {
+				"type": "String",
+				"defaultValue": "omprakashk@cybage.com;sarangp@cybage.com"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,72 @@
+{
+	"name": "DS040806_Prisma_Advanced_Placement_Details_Report_TRowePrice_SQLProc",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQLConnection",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "PlacementName",
+				"type": "String"
+			},
+			{
+				"name": "PlacementNumber",
+				"type": "String"
+			},
+			{
+				"name": "PlacementId",
+				"type": "String"
+			},
+			{
+				"name": "PackageType",
+				"type": "String"
+			},
+			{
+				"name": "PackageId",
+				"type": "String"
+			},
+			{
+				"name": "ParentId",
+				"type": "String"
+			},
+			{
+				"name": "PlacementStartDate",
+				"type": "DateTime"
+			},
+			{
+				"name": "PlacementEndDate",
+				"type": "DateTime"
+			},
+			{
+				"name": "AdserverCampaignId",
+				"type": "String"
+			},
+			{
+				"name": "AdserverPackageId",
+				"type": "String"
+			},
+			{
+				"name": "AdserverPlacementId",
+				"type": "String"
+			},
+			{
+				"name": "CustomColumnName",
+				"type": "String"
+			},
+			{
+				"name": "CustomColumnValue",
+				"type": "String"
+			},
+			{
+				"name": "IsDeleted",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "Prisma"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

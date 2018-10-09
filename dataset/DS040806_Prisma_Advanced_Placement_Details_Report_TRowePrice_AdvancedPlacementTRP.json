@@ -1,0 +1,116 @@
+{
+	"name": "DS040806_Prisma_Advanced_Placement_Details_Report_TRowePrice_AdvancedPlacementTRP",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "HttpConnection",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"PrismaAccessToken": {
+				"type": "String",
+				"defaultValue": "7adb7c89-64a4-46de-a141-5c9843be0fca"
+			},
+			"CampaignID": {
+				"type": "String",
+				"defaultValue": "0"
+			},
+			"IncludeDeletions": {
+				"type": "String",
+				"defaultValue": "False"
+			}
+		},
+		"type": "HttpFile",
+		"structure": [
+			{
+				"name": "PlacementName",
+				"type": "String"
+			},
+			{
+				"name": "PlacementNumber",
+				"type": "String"
+			},
+			{
+				"name": "PlacementId",
+				"type": "String"
+			},
+			{
+				"name": "PackageType",
+				"type": "String"
+			},
+			{
+				"name": "PackageId",
+				"type": "String"
+			},
+			{
+				"name": "ParentId",
+				"type": "String"
+			},
+			{
+				"name": "PlacementStartDate",
+				"type": "String"
+			},
+			{
+				"name": "PlacementEndDate",
+				"type": "String"
+			},
+			{
+				"name": "AdserverCampaignId",
+				"type": "String"
+			},
+			{
+				"name": "AdserverPackageId",
+				"type": "String"
+			},
+			{
+				"name": "AdserverPlacementId",
+				"type": "String"
+			},
+			{
+				"name": "CustomColumnName",
+				"type": "String"
+			},
+			{
+				"name": "CustomColumnValue",
+				"type": "String"
+			},
+			{
+				"name": "IsDeleted",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "JsonFormat",
+				"filePattern": "setOfObjects",
+				"jsonNodeReference": "$.['Data']",
+				"jsonPathDefinition": {
+					"Data": "$.['Data']",
+					"Status.Success": "$.['Status']['Success']",
+					"Status.ErrorDescription": "$.['Status']['ErrorDescription']",
+					"Status.Result": "$.['Status']['Result']",
+					"Status.LastExecutionMark": "$.['Status']['LastExecutionMark']",
+					"PlacementName": "['PlacementName']",
+					"PlacementNumber": "['PlacementNumber']",
+					"PlacementId": "['PlacementId']",
+					"PackageType": "['PackageType']",
+					"PackageId": "['PackageId']",
+					"ParentId": "['ParentId']",
+					"PlacementStartDate": "['PlacementStartDate']",
+					"PlacementEndDate": "['PlacementEndDate']",
+					"AdserverCampaignId": "['AdserverCampaignId']",
+					"AdserverPackageId": "['AdserverPackageId']",
+					"AdserverPlacementId": "['AdserverPlacementId']",
+					"CustomColumnName": "['CustomColumnName']",
+					"CustomColumnValue": "['CustomColumnValue']",
+					"IsDeleted": "['IsDeleted']"
+				}
+			},
+			"relativeUrl": {
+				"value": "/api/DataFeed/466?Prisma Access Token=@{dataset().PrismaAccessToken}&CampaignID=@{dataset().CampaignID}&IncludeDeletions=@{dataset().IncludeDeletions}&Applicationtype=Azure_WM-US-TRP&Applicationtoken=830FF98D-AE5D-47F4-AA41-133FB86411F6&Useremail=wm-us-trp@groupm.com",
+				"type": "Expression"
+			},
+			"requestMethod": "Get"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

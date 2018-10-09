@@ -1,0 +1,161 @@
+{
+	"name": "DS040801_Prisma_Campaign_Report_TRowePrice_WMTR",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "HttpConnection",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"PrismaAccessToken": {
+				"type": "String"
+			},
+			"CampaignID": {
+				"type": "String",
+				"defaultValue": "0"
+			}
+		},
+		"type": "HttpFile",
+		"structure": [
+			{
+				"name": "AgencyName",
+				"type": "String"
+			},
+			{
+				"name": "AgencyAlphaCode",
+				"type": "String"
+			},
+			{
+				"name": "LocationCompanyCode",
+				"type": "String"
+			},
+			{
+				"name": "AdvertiserName",
+				"type": "String"
+			},
+			{
+				"name": "AdvertiserCode",
+				"type": "String"
+			},
+			{
+				"name": "CampaignName",
+				"type": "String"
+			},
+			{
+				"name": "CampaignPublicId",
+				"type": "String"
+			},
+			{
+				"name": "CampaignId",
+				"type": "String"
+			},
+			{
+				"name": "CampaignStartDate",
+				"type": "String"
+			},
+			{
+				"name": "CampaignEndDate",
+				"type": "String"
+			},
+			{
+				"name": "CampaignCreationDate",
+				"type": "String"
+			},
+			{
+				"name": "CampaignCreationUser",
+				"type": "String"
+			},
+			{
+				"name": "CampaignUser",
+				"type": "String"
+			},
+			{
+				"name": "CampaignStatus",
+				"type": "String"
+			},
+			{
+				"name": "Strategy",
+				"type": "String"
+			},
+			{
+				"name": "RateType",
+				"type": "String"
+			},
+			{
+				"name": "Budget",
+				"type": "String"
+			},
+			{
+				"name": "BudgetApproved",
+				"type": "String"
+			},
+			{
+				"name": "ReferenceId",
+				"type": "String"
+			},
+			{
+				"name": "IncludePostImpressions",
+				"type": "String"
+			},
+			{
+				"name": "PrimaryGoal",
+				"type": "String"
+			},
+			{
+				"name": "ECPM",
+				"type": "String"
+			},
+			{
+				"name": "ECPA",
+				"type": "String"
+			},
+			{
+				"name": "ECPC",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "JsonFormat",
+				"filePattern": "setOfObjects",
+				"jsonNodeReference": "$.['Data']",
+				"jsonPathDefinition": {
+					"Data": "$.['Data']",
+					"Status.Success": "$.['Status']['Success']",
+					"Status.ErrorDescription": "$.['Status']['ErrorDescription']",
+					"Status.Result": "$.['Status']['Result']",
+					"Status.LastExecutionMark": "$.['Status']['LastExecutionMark']",
+					"AgencyName": "['AgencyName']",
+					"AgencyAlphaCode": "['AgencyAlphaCode']",
+					"LocationCompanyCode": "['LocationCompanyCode']",
+					"AdvertiserName": "['AdvertiserName']",
+					"AdvertiserCode": "['AdvertiserCode']",
+					"CampaignName": "['CampaignName']",
+					"CampaignPublicId": "['CampaignPublicId']",
+					"CampaignId": "['CampaignId']",
+					"CampaignStartDate": "['CampaignStartDate']",
+					"CampaignEndDate": "['CampaignEndDate']",
+					"CampaignCreationDate": "['CampaignCreationDate']",
+					"CampaignCreationUser": "['CampaignCreationUser']",
+					"CampaignUser": "['CampaignUser']",
+					"CampaignStatus": "['CampaignStatus']",
+					"Strategy": "['Strategy']",
+					"RateType": "['RateType']",
+					"Budget": "['Budget']",
+					"BudgetApproved": "['BudgetApproved']",
+					"ReferenceId": "['ReferenceId']",
+					"IncludePostImpressions": "['IncludePostImpressions']",
+					"PrimaryGoal": "['PrimaryGoal']",
+					"ECPM": "['ECPM']",
+					"ECPA": "['ECPA']",
+					"ECPC": "['ECPC']"
+				}
+			},
+			"relativeUrl": {
+				"value": "/api/DataFeed/463?Prisma Access Token=@{dataset().PrismaAccessToken}&CampaignID=@{dataset().CampaignID}&Applicationtype=Azure_WM-US-TRP&Applicationtoken=830FF98D-AE5D-47F4-AA41-133FB86411F6&Useremail=wm-us-trp@groupm.com",
+				"type": "Expression"
+			},
+			"requestMethod": "Get"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

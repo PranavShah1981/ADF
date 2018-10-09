@@ -1,0 +1,376 @@
+{
+	"name": "DS040803_Prisma_Placement_Details_Report_TRowePrice_SQLProc",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQLConnection",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "AgencyName",
+				"type": "String"
+			},
+			{
+				"name": "AgencyAlphaCode",
+				"type": "String"
+			},
+			{
+				"name": "LocationCompanyCode",
+				"type": "String"
+			},
+			{
+				"name": "AdvertiserName",
+				"type": "String"
+			},
+			{
+				"name": "AdvertiserCode",
+				"type": "String"
+			},
+			{
+				"name": "AdvertiserBusinessKey",
+				"type": "String"
+			},
+			{
+				"name": "ProductName",
+				"type": "String"
+			},
+			{
+				"name": "ProductCode",
+				"type": "String"
+			},
+			{
+				"name": "ProductBusinessKey",
+				"type": "String"
+			},
+			{
+				"name": "CampaignName",
+				"type": "String"
+			},
+			{
+				"name": "CampaignPublicId",
+				"type": "String"
+			},
+			{
+				"name": "CampaignId",
+				"type": "String"
+			},
+			{
+				"name": "CampaignStartDate",
+				"type": "String"
+			},
+			{
+				"name": "CampaignEndDate",
+				"type": "String"
+			},
+			{
+				"name": "CampaignCreationDate",
+				"type": "String"
+			},
+			{
+				"name": "CampaignCreationUser",
+				"type": "String"
+			},
+			{
+				"name": "CampaignUser",
+				"type": "String"
+			},
+			{
+				"name": "SupplierName",
+				"type": "String"
+			},
+			{
+				"name": "SupplierCode",
+				"type": "String"
+			},
+			{
+				"name": "SupplierBusinessKey",
+				"type": "String"
+			},
+			{
+				"name": "SupplierProductName",
+				"type": "String"
+			},
+			{
+				"name": "SupplierAdServerOrderId",
+				"type": "String"
+			},
+			{
+				"name": "EstimateName",
+				"type": "String"
+			},
+			{
+				"name": "EstimateCode",
+				"type": "String"
+			},
+			{
+				"name": "EstimateBusinessKey",
+				"type": "String"
+			},
+			{
+				"name": "EstimateStartDate",
+				"type": "String"
+			},
+			{
+				"name": "EstimateEndDate",
+				"type": "String"
+			},
+			{
+				"name": "MediaName",
+				"type": "String"
+			},
+			{
+				"name": "MediaCode",
+				"type": "String"
+			},
+			{
+				"name": "BuyType",
+				"type": "String"
+			},
+			{
+				"name": "BuyCategory",
+				"type": "String"
+			},
+			{
+				"name": "PlacementName",
+				"type": "String"
+			},
+			{
+				"name": "PlacementNumber",
+				"type": "String"
+			},
+			{
+				"name": "PlacementId",
+				"type": "String"
+			},
+			{
+				"name": "PackageType",
+				"type": "String"
+			},
+			{
+				"name": "PackageId",
+				"type": "String"
+			},
+			{
+				"name": "ParentId",
+				"type": "String"
+			},
+			{
+				"name": "PlacementStartDate",
+				"type": "String"
+			},
+			{
+				"name": "PlacementEndDate",
+				"type": "String"
+			},
+			{
+				"name": "PlacementCreationDate",
+				"type": "String"
+			},
+			{
+				"name": "PlacementCreationUser",
+				"type": "String"
+			},
+			{
+				"name": "PlacementChangeDate",
+				"type": "String"
+			},
+			{
+				"name": "PlacementUser",
+				"type": "String"
+			},
+			{
+				"name": "PlacementType",
+				"type": "String"
+			},
+			{
+				"name": "PrimaryPlacement",
+				"type": "String"
+			},
+			{
+				"name": "AdserverName",
+				"type": "String"
+			},
+			{
+				"name": "InstanceName",
+				"type": "String"
+			},
+			{
+				"name": "AdserverCampaignId",
+				"type": "String"
+			},
+			{
+				"name": "AdserverPackageId",
+				"type": "String"
+			},
+			{
+				"name": "AdserverPlacementId",
+				"type": "String"
+			},
+			{
+				"name": "AdserverAdvertiserName",
+				"type": "String"
+			},
+			{
+				"name": "AdserverAdvertiserCode",
+				"type": "String"
+			},
+			{
+				"name": "AdserverClientName",
+				"type": "String"
+			},
+			{
+				"name": "AdserverClientCode",
+				"type": "String"
+			},
+			{
+				"name": "AdserverSupplierName",
+				"type": "String"
+			},
+			{
+				"name": "AdserverSupplierCode",
+				"type": "String"
+			},
+			{
+				"name": "AdserverSiteName",
+				"type": "String"
+			},
+			{
+				"name": "AdserverSiteCode",
+				"type": "String"
+			},
+			{
+				"name": "Site",
+				"type": "String"
+			},
+			{
+				"name": "Dimension",
+				"type": "String"
+			},
+			{
+				"name": "Positioning",
+				"type": "String"
+			},
+			{
+				"name": "Section",
+				"type": "String"
+			},
+			{
+				"name": "CostMethod",
+				"type": "String"
+			},
+			{
+				"name": "OriginalCostMethod",
+				"type": "String"
+			},
+			{
+				"name": "UnitType",
+				"type": "String"
+			},
+			{
+				"name": "Market",
+				"type": "String"
+			},
+			{
+				"name": "MarketRate",
+				"type": "String"
+			},
+			{
+				"name": "Rate",
+				"type": "String"
+			},
+			{
+				"name": "IONumber",
+				"type": "String"
+			},
+			{
+				"name": "ServedBy",
+				"type": "String"
+			},
+			{
+				"name": "CapCost",
+				"type": "String"
+			},
+			{
+				"name": "TargetInfo",
+				"type": "String"
+			},
+			{
+				"name": "Comments",
+				"type": "String"
+			},
+			{
+				"name": "FileType",
+				"type": "String"
+			},
+			{
+				"name": "MaxFileSize",
+				"type": "String"
+			},
+			{
+				"name": "FlashVersion",
+				"type": "String"
+			},
+			{
+				"name": "CreativeDueDate",
+				"type": "String"
+			},
+			{
+				"name": "MaxLooping",
+				"type": "String"
+			},
+			{
+				"name": "MaxAnimationTiming",
+				"type": "String"
+			},
+			{
+				"name": "RichMediaAccepted",
+				"type": "String"
+			},
+			{
+				"name": "RichMediaIncCmp",
+				"type": "String"
+			},
+			{
+				"name": "EstimatedUniqueViews",
+				"type": "String"
+			},
+			{
+				"name": "EstimatedPageViews",
+				"type": "String"
+			},
+			{
+				"name": "ShareOfVoice",
+				"type": "String"
+			},
+			{
+				"name": "ClickThroughUrl",
+				"type": "String"
+			},
+			{
+				"name": "CreativeTypeDescription",
+				"type": "String"
+			},
+			{
+				"name": "InventoryType",
+				"type": "String"
+			},
+			{
+				"name": "OriginalAmount",
+				"type": "String"
+			},
+			{
+				"name": "OriginalCost",
+				"type": "String"
+			},
+			{
+				"name": "IsDeleted",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "Prisma"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

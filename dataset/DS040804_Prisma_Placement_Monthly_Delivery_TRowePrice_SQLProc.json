@@ -1,0 +1,324 @@
+{
+	"name": "DS040804_Prisma_Placement_Monthly_Delivery_TRowePrice_SQLProc",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQLConnection",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "StartDate",
+				"type": "String"
+			},
+			{
+				"name": "EndDate",
+				"type": "String"
+			},
+			{
+				"name": "AgencyName",
+				"type": "String"
+			},
+			{
+				"name": "AgencyAlphaCode",
+				"type": "String"
+			},
+			{
+				"name": "LocationCompanyCode",
+				"type": "String"
+			},
+			{
+				"name": "AdvertiserName",
+				"type": "String"
+			},
+			{
+				"name": "AdvertiserCode",
+				"type": "String"
+			},
+			{
+				"name": "AdvertiserBusinessKey",
+				"type": "String"
+			},
+			{
+				"name": "ProductName",
+				"type": "String"
+			},
+			{
+				"name": "ProductCode",
+				"type": "String"
+			},
+			{
+				"name": "ProductBusinessKey",
+				"type": "String"
+			},
+			{
+				"name": "CampaignName",
+				"type": "String"
+			},
+			{
+				"name": "CampaignPublicId",
+				"type": "String"
+			},
+			{
+				"name": "CampaignId",
+				"type": "String"
+			},
+			{
+				"name": "CampaignStartDate",
+				"type": "String"
+			},
+			{
+				"name": "CampaignEndDate",
+				"type": "String"
+			},
+			{
+				"name": "SupplierName",
+				"type": "String"
+			},
+			{
+				"name": "SupplierCode",
+				"type": "String"
+			},
+			{
+				"name": "SupplierBusinessKey",
+				"type": "String"
+			},
+			{
+				"name": "EstimateName",
+				"type": "String"
+			},
+			{
+				"name": "EstimateCode",
+				"type": "String"
+			},
+			{
+				"name": "EstimateBusinessKey",
+				"type": "String"
+			},
+			{
+				"name": "MediaName",
+				"type": "String"
+			},
+			{
+				"name": "MediaCode",
+				"type": "String"
+			},
+			{
+				"name": "BuyType",
+				"type": "String"
+			},
+			{
+				"name": "BuyCategory",
+				"type": "String"
+			},
+			{
+				"name": "PlacementName",
+				"type": "String"
+			},
+			{
+				"name": "PlacementNumber",
+				"type": "String"
+			},
+			{
+				"name": "PlacementId",
+				"type": "String"
+			},
+			{
+				"name": "PackageType",
+				"type": "String"
+			},
+			{
+				"name": "PackageId",
+				"type": "String"
+			},
+			{
+				"name": "ParentId",
+				"type": "String"
+			},
+			{
+				"name": "PlacementStartDate",
+				"type": "String"
+			},
+			{
+				"name": "PlacementEndDate",
+				"type": "String"
+			},
+			{
+				"name": "PlacementMonthlyStartDate",
+				"type": "String"
+			},
+			{
+				"name": "PlacementMonthlyEndDate",
+				"type": "String"
+			},
+			{
+				"name": "PlacementMonth",
+				"type": "String"
+			},
+			{
+				"name": "PlacementYear",
+				"type": "String"
+			},
+			{
+				"name": "PlacementType",
+				"type": "String"
+			},
+			{
+				"name": "PrimaryPlacement",
+				"type": "String"
+			},
+			{
+				"name": "AdserverName",
+				"type": "String"
+			},
+			{
+				"name": "InstanceName",
+				"type": "String"
+			},
+			{
+				"name": "AdserverCampaignId",
+				"type": "String"
+			},
+			{
+				"name": "AdserverPackageId",
+				"type": "String"
+			},
+			{
+				"name": "AdserverPlacementId",
+				"type": "String"
+			},
+			{
+				"name": "AdserverAdvertiserName",
+				"type": "String"
+			},
+			{
+				"name": "AdserverAdvertiserCode",
+				"type": "String"
+			},
+			{
+				"name": "AdserverClientName",
+				"type": "String"
+			},
+			{
+				"name": "AdserverClientCode",
+				"type": "String"
+			},
+			{
+				"name": "AdserverSupplierName",
+				"type": "String"
+			},
+			{
+				"name": "AdserverSupplierCode",
+				"type": "String"
+			},
+			{
+				"name": "AdserverSiteName",
+				"type": "String"
+			},
+			{
+				"name": "AdserverSiteCode",
+				"type": "String"
+			},
+			{
+				"name": "DeliveryExists",
+				"type": "String"
+			},
+			{
+				"name": "PlannedAmount",
+				"type": "String"
+			},
+			{
+				"name": "PlannedUnits",
+				"type": "String"
+			},
+			{
+				"name": "PlannedImpressions",
+				"type": "String"
+			},
+			{
+				"name": "PlannedClicks",
+				"type": "String"
+			},
+			{
+				"name": "PlannedActions",
+				"type": "String"
+			},
+			{
+				"name": "IOAmount",
+				"type": "String"
+			},
+			{
+				"name": "SupplierUnits",
+				"type": "String"
+			},
+			{
+				"name": "SupplierImpressions",
+				"type": "String"
+			},
+			{
+				"name": "SupplierClicks",
+				"type": "String"
+			},
+			{
+				"name": "SupplierActions",
+				"type": "String"
+			},
+			{
+				"name": "SupplierCost",
+				"type": "String"
+			},
+			{
+				"name": "AdserverUnits",
+				"type": "String"
+			},
+			{
+				"name": "AdserverImpressions",
+				"type": "String"
+			},
+			{
+				"name": "AdserverClicks",
+				"type": "String"
+			},
+			{
+				"name": "AdserverActions",
+				"type": "String"
+			},
+			{
+				"name": "AdserverCost",
+				"type": "String"
+			},
+			{
+				"name": "WeightedPostImpressions",
+				"type": "String"
+			},
+			{
+				"name": "WeightedPostClicks",
+				"type": "String"
+			},
+			{
+				"name": "WeightedActions",
+				"type": "String"
+			},
+			{
+				"name": "ConversionPostImpressions",
+				"type": "String"
+			},
+			{
+				"name": "ConversionPostClicks",
+				"type": "String"
+			},
+			{
+				"name": "ConversionActions",
+				"type": "String"
+			},
+			{
+				"name": "IsDeleted",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "Prisma"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
