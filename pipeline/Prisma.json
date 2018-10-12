@@ -807,7 +807,7 @@
 					{
 						"activity": "Prisma_Campaign_Report_WMTR",
 						"dependencyConditions": [
-							"Failed"
+							"Succeeded"
 						]
 					}
 				],
