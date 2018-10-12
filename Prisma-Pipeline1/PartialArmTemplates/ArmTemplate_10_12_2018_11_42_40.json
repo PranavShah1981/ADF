@@ -6,34 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory Name",
 			"defaultValue": "Prisma-Pipeline1"
-		},
-		"AzureBatch_Python_accessKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accessKey' of 'AzureBatch_Python'"
-		},
-		"BlobConnection_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'BlobConnection'"
-		},
-		"FtpConnection_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'FtpConnection'"
-		},
-		"SQLConnection_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'SQLConnection'"
-		},
-		"AzureBatch_Python_properties_typeProperties_accountName": {
-			"type": "string",
-			"defaultValue": "wmusbstrp"
-		},
-		"FtpConnection_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "MaxusBaselineFTP"
-		},
-		"HttpConnection_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://ccr.groupm.com"
 		}
 	},
 	"variables": {
@@ -49,7 +21,6 @@
 					{
 						"name": "Prisma_Campaign_Report_TRP",
 						"type": "Copy",
-						"dependsOn": [],
 						"policy": {
 							"timeout": "7.00:00:00",
 							"retry": 0,
@@ -57,7 +28,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "HttpSource",
@@ -86,8 +56,7 @@
 						"outputs": [
 							{
 								"referenceName": "DS040801_Prisma_Campaign_Report_TRowePrice_SQLProc",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -109,7 +78,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "HttpSource",
@@ -137,15 +105,13 @@
 						"outputs": [
 							{
 								"referenceName": "DS040801_Prisma_Campaign_Report_TRowePrice_SQLProc",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
 					{
 						"name": "Prisma_Placement_Details_PlacementTRP",
 						"type": "Copy",
-						"dependsOn": [],
 						"policy": {
 							"timeout": "7.00:00:00",
 							"retry": 0,
@@ -153,7 +119,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "HttpSource",
@@ -278,8 +243,7 @@
 						"outputs": [
 							{
 								"referenceName": "DS040803_Prisma_Placement_Details_Report_TRowePrice_SQLProc",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -301,7 +265,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "HttpSource",
@@ -414,15 +377,13 @@
 						"outputs": [
 							{
 								"referenceName": "DS040804_Prisma_Placement_Monthly_Delivery_TRowePrice_SQLProc",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
 					{
 						"name": "Prisma_PlacementmonthlyTRP",
 						"type": "Copy",
-						"dependsOn": [],
 						"policy": {
 							"timeout": "7.00:00:00",
 							"retry": 0,
@@ -430,7 +391,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "HttpSource",
@@ -544,8 +504,7 @@
 						"outputs": [
 							{
 								"referenceName": "DS040804_Prisma_Placement_Monthly_Delivery_TRowePrice_SQLProc",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -567,7 +526,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "HttpSource",
@@ -616,15 +574,13 @@
 						"outputs": [
 							{
 								"referenceName": "DS040806_Prisma_Advanced_Placement_Details_Report_TRowePrice_SQLProc",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
 					{
 						"name": "Prisma_AdvancedPlacementTRP",
 						"type": "Copy",
-						"dependsOn": [],
 						"policy": {
 							"timeout": "7.00:00:00",
 							"retry": 0,
@@ -632,7 +588,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "HttpSource",
@@ -681,8 +636,7 @@
 						"outputs": [
 							{
 								"referenceName": "DS040806_Prisma_Advanced_Placement_Details_Report_TRowePrice_SQLProc",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -704,7 +658,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "HttpSource",
@@ -829,8 +782,7 @@
 						"outputs": [
 							{
 								"referenceName": "DS040803_Prisma_Placement_Details_Report_TRowePrice_SQLProc",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -852,7 +804,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"url": "https://prod-07.eastus.logic.azure.com:443/workflows/202bfb2d6e5d4108bc253bc2091db8f4/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=B9GfpCVC4ckmQoB44i_i55Pl07v6VY6bXsRgTK43cyw",
 							"method": "POST",
@@ -883,7 +834,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"url": "https://prod-07.eastus.logic.azure.com:443/workflows/202bfb2d6e5d4108bc253bc2091db8f4/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=B9GfpCVC4ckmQoB44i_i55Pl07v6VY6bXsRgTK43cyw",
 							"method": "POST",
@@ -915,7 +865,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"url": "https://prod-07.eastus.logic.azure.com:443/workflows/202bfb2d6e5d4108bc253bc2091db8f4/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=B9GfpCVC4ckmQoB44i_i55Pl07v6VY6bXsRgTK43cyw",
 							"method": "POST",
@@ -947,7 +896,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"url": "https://prod-07.eastus.logic.azure.com:443/workflows/202bfb2d6e5d4108bc253bc2091db8f4/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=B9GfpCVC4ckmQoB44i_i55Pl07v6VY6bXsRgTK43cyw",
 							"method": "POST",
@@ -978,7 +926,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"url": "https://prod-07.eastus.logic.azure.com:443/workflows/202bfb2d6e5d4108bc253bc2091db8f4/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=B9GfpCVC4ckmQoB44i_i55Pl07v6VY6bXsRgTK43cyw",
 							"method": "POST",
@@ -1010,7 +957,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"url": "https://prod-07.eastus.logic.azure.com:443/workflows/202bfb2d6e5d4108bc253bc2091db8f4/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=B9GfpCVC4ckmQoB44i_i55Pl07v6VY6bXsRgTK43cyw",
 							"method": "POST",
@@ -1041,7 +987,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"url": "https://prod-07.eastus.logic.azure.com:443/workflows/202bfb2d6e5d4108bc253bc2091db8f4/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=B9GfpCVC4ckmQoB44i_i55Pl07v6VY6bXsRgTK43cyw",
 							"method": "POST",
@@ -1072,7 +1017,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"url": "https://prod-07.eastus.logic.azure.com:443/workflows/202bfb2d6e5d4108bc253bc2091db8f4/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=B9GfpCVC4ckmQoB44i_i55Pl07v6VY6bXsRgTK43cyw",
 							"method": "POST",
@@ -1091,8 +1035,7 @@
 						"type": "String",
 						"defaultValue": "omprakashk@cybage.com;sarangp@cybage.com"
 					}
-				},
-				"annotations": []
+				}
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/DS040801_Prisma_Campaign_Report_TRowePrice_PrismaCampaignTRP')]",
@@ -1126,7 +1069,6 @@
 						"type": "String"
 					}
 				},
-				"annotations": [],
 				"type": "HttpFile",
 				"structure": [
 					{
@@ -1269,10 +1211,7 @@
 					},
 					"requestMethod": "Get"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/HttpConnection')]"
-			]
+			}
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/DS040801_Prisma_Campaign_Report_TRowePrice_SQLProc')]",
@@ -1283,15 +1222,11 @@
 					"referenceName": "SQLConnection",
 					"type": "LinkedServiceReference"
 				},
-				"annotations": [],
 				"type": "AzureSqlTable",
 				"typeProperties": {
 					"tableName": "Prisma"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/SQLConnection')]"
-			]
+			}
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/DS040801_Prisma_Campaign_Report_TRowePrice_WMTR')]",
@@ -1311,7 +1246,6 @@
 						"defaultValue": "0"
 					}
 				},
-				"annotations": [],
 				"type": "HttpFile",
 				"structure": [
 					{
@@ -1454,10 +1388,7 @@
 					},
 					"requestMethod": "Get"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/HttpConnection')]"
-			]
+			}
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/DS040803_Prisma_Placement_Details_Report_TRowePrice_PlacementTRP')]",
@@ -1479,7 +1410,6 @@
 						"type": "String"
 					}
 				},
-				"annotations": [],
 				"type": "HttpFile",
 				"structure": [
 					{
@@ -1952,10 +1882,7 @@
 					},
 					"requestMethod": "Get"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/HttpConnection')]"
-			]
+			}
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/DS040803_Prisma_Placement_Details_Report_TRowePrice_SQLProc')]",
@@ -1966,7 +1893,6 @@
 					"referenceName": "SQLConnection",
 					"type": "LinkedServiceReference"
 				},
-				"annotations": [],
 				"type": "AzureSqlTable",
 				"structure": [
 					{
@@ -2333,10 +2259,7 @@
 				"typeProperties": {
 					"tableName": "Prisma"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/SQLConnection')]"
-			]
+			}
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/DS040803_Prisma_Placement_Details_Report_TRowePrice_WMTR')]",
@@ -2358,7 +2281,6 @@
 						"type": "String"
 					}
 				},
-				"annotations": [],
 				"type": "HttpFile",
 				"structure": [
 					{
@@ -2831,10 +2753,7 @@
 					},
 					"requestMethod": "Get"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/HttpConnection')]"
-			]
+			}
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/DS040804_Prisma_Placement_Monthly_Delivery_TRowePrice_PlacementmonthlyTRP')]",
@@ -2867,7 +2786,6 @@
 						"defaultValue": "False"
 					}
 				},
-				"annotations": [],
 				"type": "HttpFile",
 				"structure": [
 					{
@@ -3360,10 +3278,7 @@
 					},
 					"requestMethod": "Get"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/HttpConnection')]"
-			]
+			}
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/DS040804_Prisma_Placement_Monthly_Delivery_TRowePrice_SQLProc')]",
@@ -3374,7 +3289,6 @@
 					"referenceName": "SQLConnection",
 					"type": "LinkedServiceReference"
 				},
-				"annotations": [],
 				"type": "AzureSqlTable",
 				"structure": [
 					{
@@ -3689,10 +3603,7 @@
 				"typeProperties": {
 					"tableName": "Prisma"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/SQLConnection')]"
-			]
+			}
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/DS040804_Prisma_Placement_Monthly_Delivery_TRowePrice_WMTR')]",
@@ -3725,7 +3636,6 @@
 						"defaultValue": "False"
 					}
 				},
-				"annotations": [],
 				"type": "HttpFile",
 				"structure": [
 					{
@@ -4218,10 +4128,7 @@
 					},
 					"requestMethod": "Get"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/HttpConnection')]"
-			]
+			}
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/DS040806_Prisma_Advanced_Placement_Details_Report_TRowePrice_AdvancedPlacementTRP')]",
@@ -4246,7 +4153,6 @@
 						"defaultValue": "False"
 					}
 				},
-				"annotations": [],
 				"type": "HttpFile",
 				"structure": [
 					{
@@ -4339,10 +4245,7 @@
 					},
 					"requestMethod": "Get"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/HttpConnection')]"
-			]
+			}
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/DS040806_Prisma_Advanced_Placement_Details_Report_TRowePrice_SQLProc')]",
@@ -4353,7 +4256,6 @@
 					"referenceName": "SQLConnection",
 					"type": "LinkedServiceReference"
 				},
-				"annotations": [],
 				"type": "AzureSqlTable",
 				"structure": [
 					{
@@ -4416,10 +4318,7 @@
 				"typeProperties": {
 					"tableName": "Prisma"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/SQLConnection')]"
-			]
+			}
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/DS040806_Prisma_Advanced_Placement_Details_Report_TRowePrice_WMTR')]",
@@ -4444,7 +4343,6 @@
 						"defaultValue": "False"
 					}
 				},
-				"annotations": [],
 				"type": "HttpFile",
 				"structure": [
 					{
@@ -4537,99 +4435,7 @@
 					},
 					"requestMethod": "Get"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/HttpConnection')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureBatch_Python')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBatch",
-				"typeProperties": {
-					"accountName": "[parameters('AzureBatch_Python_properties_typeProperties_accountName')]",
-					"accessKey": {
-						"type": "SecureString",
-						"value": "[parameters('AzureBatch_Python_accessKey')]"
-					},
-					"batchUri": "https://wmusbstrp.eastus.batch.azure.com",
-					"poolName": "UbuntuVMPool",
-					"linkedServiceName": {
-						"referenceName": "BlobConnection",
-						"type": "LinkedServiceReference"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/BlobConnection')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/BlobConnection')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('BlobConnection_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/FtpConnection')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Linked Service to connect to FTP source",
-				"annotations": [],
-				"type": "FtpServer",
-				"typeProperties": {
-					"host": "liveftp.groupm.com",
-					"port": 21,
-					"enableSsl": true,
-					"enableServerCertificateValidation": true,
-					"authenticationType": "Basic",
-					"userName": "[parameters('FtpConnection_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('FtpConnection_password')]"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/HttpConnection')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Call Marketplace API",
-				"annotations": [],
-				"type": "HttpServer",
-				"typeProperties": {
-					"url": "[parameters('HttpConnection_properties_typeProperties_url')]",
-					"authenticationType": "Anonymous"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SQLConnection')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"connectionString": "[parameters('SQLConnection_connectionString')]"
-				}
-			},
-			"dependsOn": []
+			}
 		}
 	]
 }

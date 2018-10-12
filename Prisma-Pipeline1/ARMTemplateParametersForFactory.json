@@ -1,1 +1,30 @@
-{}
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "Prisma-Pipeline1"
+		},
+		"AzureBatch_Python_accessKey": {
+			"value": ""
+		},
+		"BlobConnection_connectionString": {
+			"value": ""
+		},
+		"FtpConnection_password": {
+			"value": ""
+		},
+		"SQLConnection_connectionString": {
+			"value": ""
+		},
+		"AzureBatch_Python_properties_typeProperties_accountName": {
+			"value": "wmusbstrp"
+		},
+		"FtpConnection_properties_typeProperties_userName": {
+			"value": "MaxusBaselineFTP"
+		},
+		"HttpConnection_properties_typeProperties_url": {
+			"value": "https://ccr.groupm.com"
+		}
+	}
+}
